@@ -1,0 +1,81 @@
+body,
+html,
+#root {
+  @include no-padding();
+  overflow: hidden;
+}
+
+#root {
+  @include flexbox(row);
+  @include primary-color-scheme();
+
+  width: 100vw;
+  height: 100vh;
+
+  @media (max-width: 750px) {
+    @include flexbox(column);
+    overflow-y: scroll;
+  }
+
+  .ui-container {
+    @include flexbox(column);
+
+    flex: 1;
+    gap: 15px;
+    max-width: 500px;
+    min-width: 250px;
+    padding-bottom: 20px;
+
+    .ui-title {
+      font-size: 24px;
+    }
+
+    .ui-form {
+      gap: 15px;
+
+      .ui-input {
+        .MuiOutlinedInput-root {
+          border-radius: 12px;
+          
+          &:hover .MuiOutlinedInput-notchedOutline {
+            border-color: #0057b33b !important;
+          }
+
+          &.Mui-focused .MuiOutlinedInput-notchedOutline {
+            border-color: #0057b3bb !important;
+            box-shadow: 0 0 8px rgba(0, 86, 179, 0.5) !important;
+          }
+        }
+
+        input {
+          @include primary-color-scheme();
+          @include classic-borders();
+        }
+
+        label {
+          @include primary-color-scheme();
+        }
+      }
+
+      .ui-button {
+        background-color: #007bff !important;
+        color: white !important;
+        font-weight: bold !important;
+
+        &:hover {
+          background-color: #0056b3 !important;
+        }
+      }
+    }
+  }
+
+  .canvas-container {
+    @include flexbox(column);
+    @include full-parent();
+    @include alternate-color-scheme();
+
+    border-left: 1px solid #4d4d4d;
+
+    flex: 2;
+  }
+}
