@@ -1,28 +1,22 @@
-body,
-html,
-#root {
-  @include no-padding();
-  overflow: hidden;
-}
-
 #root {
   @include flexbox(row);
   @include primary-color-scheme();
 
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 
   @media (max-width: 750px) {
     @include flexbox(column);
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 
   .ui-container {
     @include flexbox(column);
 
-    flex: 1;
+    flex: 1.2;
     gap: 15px;
-    max-width: 500px;
+    max-width: 600px;
     min-width: 250px;
     padding-bottom: 20px;
 

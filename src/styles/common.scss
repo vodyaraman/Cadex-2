@@ -9,6 +9,7 @@ $font-color: #fff1f1;
 
 @mixin alternate-color-scheme {
     background-color: $background-color-alternate;
+    color: $font-color;
 }
 
 @mixin flexbox($direction) {
