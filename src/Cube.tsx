@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Mesh, BufferGeometry, Float32BufferAttribute, Uint16BufferAttribute, DoubleSide } from "three";
 
-export default function BoxGeometry({ vertices, triangles }: { vertices: number[]; triangles: number[] }) {
+export default function BoxGeometry({ vertices, triangles, color }: { vertices: number[]; triangles: number[]; color: string }) {
   const ref = useRef<Mesh | null>(null);
 
   useEffect(() => {
@@ -52,7 +52,7 @@ export default function BoxGeometry({ vertices, triangles }: { vertices: number[
 
   return (
     <mesh ref={ref}>
-      <meshStandardMaterial color="#fff1f1" side={DoubleSide} />
+      <meshStandardMaterial color={color} side={DoubleSide} />
     </mesh>
   );
 }

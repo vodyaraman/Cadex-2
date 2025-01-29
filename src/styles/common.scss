@@ -1,16 +1,33 @@
-$background-color: #04060a;
-$background-color-alternate: #121a2b;
-$font-color: #fff1f1;
+$background-color-dark: #04060a;
+$background-color-alternate-dark: #121a2b;
+$font-color-dark: #fff1f1;
+
+$background-color-light: #f1f1f1;
+$background-color-alternate-light: #caeaff;
+$font-color-light: #000000;
 
 @mixin primary-color-scheme {
-    background-color: $background-color;
-    color: $font-color;
+  background-color: var(--background-color);
+  color: var(--font-color);
 }
 
 @mixin alternate-color-scheme {
-    background-color: $background-color-alternate;
-    color: $font-color;
+  background-color: var(--background-color-alternate);
+  color: var(--font-color);
 }
+
+:root {
+  --background-color: #{$background-color-dark};
+  --background-color-alternate: #{$background-color-alternate-dark};
+  --font-color: #{$font-color-dark};
+}
+
+.light-mode {
+  --background-color: #{$background-color-light};
+  --background-color-alternate: #{$background-color-alternate-light};
+  --font-color: #{$font-color-light};
+}
+
 
 @mixin flexbox($direction) {
     position: relative;
@@ -20,12 +37,10 @@ $font-color: #fff1f1;
     flex-direction: $direction;
 }
 
-@mixin absolute-fw {
+@mixin absolute {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
 }
 
 @mixin full-parent {
